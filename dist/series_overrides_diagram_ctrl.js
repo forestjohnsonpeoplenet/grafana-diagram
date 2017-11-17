@@ -54,6 +54,12 @@ System.register([], function (_export, _context) {
           $scope.ctrl.refresh();
         };
 
+        // $scope.linksChanged = function(option){
+        //   $scope.override['links'] = option.value;
+        //   $scope.updateCurrentOverrides();
+        //   $scope.ctrl.refresh();
+        // };
+
         $scope.decimalsChanged = function (option) {
           $scope.override['decimals'] = option.value;
           $scope.updateCurrentOverrides();
@@ -109,6 +115,7 @@ System.register([], function (_export, _context) {
         $scope.addOverrideOption('Value', 'valueName', ['avg', 'min', 'max', 'total', 'current']);
         $scope.addOverrideOption('Decimals', 'decimals', [2]);
         $scope.addOverrideOption('Unit Format', 'unitFormat', ['select']);
+        //$scope.addOverrideOption('Links', 'links', ['google^https://google.com|facebook^https://facebook.com']);
         $scope.updateCurrentOverrides();
       }]);
     }

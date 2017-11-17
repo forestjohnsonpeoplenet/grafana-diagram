@@ -415,13 +415,14 @@ class DiagramCtrl extends MetricsPanelCtrl {
         diagramContainer.html('There was a problem rendering the graph');
       } else {
         diagramContainer.html(svgCode);
+        bindFunctions(diagramContainer[0]);
+
         document.querySelectorAll('svg').forEach(graphSvg => {
           graphSvg.querySelectorAll('"g .node[title]"').forEach(nodeWithTitle => {
             var url = nodeWithTitle.getAttribute('title');
             nodeWithTitle.onclick = () => window.location = url;
           });
         });
-        bindFunctions(diagramContainer[0]);
       }
     };
     // if parsing the graph definition fails, the error handler will be called but the renderCallback() may also still be called.
