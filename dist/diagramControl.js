@@ -345,6 +345,15 @@ System.register(['./libs/mermaid/dist/mermaidAPI', 'app/core/time_series2', 'app
 									} else {
 										diagramContainer.html(svgCode);
 										bindFunctions(diagramContainer[0]);
+
+										document.querySelectorAll('svg').forEach(function (graphSvg) {
+											graphSvg.querySelectorAll('"g .node[title]"').forEach(function (nodeWithTitle) {
+												var url = nodeWithTitle.getAttribute('title');
+												nodeWithTitle.onclick = function () {
+													return window.location = url;
+												};
+											});
+										});
 									}
 								};
 								// if parsing the graph definition fails, the error handler will be called but the renderCallback() may also still be called.
