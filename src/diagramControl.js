@@ -415,6 +415,12 @@ class DiagramCtrl extends MetricsPanelCtrl {
         diagramContainer.html('There was a problem rendering the graph');
       } else {
         diagramContainer.html(svgCode);
+        document.querySelectorAll('svg').forEach(graphSvg => {
+          graphSvg.querySelectorAll('"g .node[title]"').forEach(nodeWithTitle => {
+            var url = nodeWithTitle.getAttribute('title');
+            nodeWithTitle.onclick = () => window.location = url;
+          });
+        });
         bindFunctions(diagramContainer[0]);
       }
     };
@@ -583,6 +589,8 @@ class DiagramCtrl extends MetricsPanelCtrl {
     seriesItem.valueName = overrides.valueName || this.panel.valueName;
 
     seriesItem.format = overrides.unitFormat || this.panel.format;
+    //seriesItem.links = overrides.links;
+
     return seriesItem;
   }
 
