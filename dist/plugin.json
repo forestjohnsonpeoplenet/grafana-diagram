@@ -1,7 +1,7 @@
 {
   "type": "panel",
-  "name": "Diagram",
-  "id": "jdbranham-diagram-panel",
+  "name": "Diagram-fjohnson",
+  "id": "fjohnson-diagram-panel",
 
   "info": {
     "description": "Diagram panel for grafana",
@@ -11,8 +11,8 @@
     ],
     "keywords": ["diagram", "panel"],
     "links": [
-      {"name": "Project site", "url": "https://github.com/jdbranham/grafana-diagram"},
-      {"name": "Apache License", "url": "https://github.com/jdbranham/grafana-diagram/blob/master/LICENSE"}
+      {"name": "Project site", "url": "https://github.com/forestjohnsonpeoplenet/grafana-diagram"},
+      {"name": "Apache License", "url": "https://github.com/forestjohnsonpeoplenet/grafana-diagram/blob/master/LICENSE"}
     ],
     "version": "1.4.3",
     "updated": "2017-11-07",
