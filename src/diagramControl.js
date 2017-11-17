@@ -248,7 +248,7 @@ class DiagramCtrl extends MetricsPanelCtrl {
             bindFunctions(diagramContainer[0]);
 
             document.querySelectorAll('svg').forEach(graphSvg => {
-              graphSvg.querySelectorAll('"g .node[title]"').forEach(nodeWithTitle => {
+              graphSvg.querySelectorAll('g .node[title]').forEach(nodeWithTitle => {
                 var url = nodeWithTitle.getAttribute('title');
                 nodeWithTitle.onclick = () => window.location = url;
               });

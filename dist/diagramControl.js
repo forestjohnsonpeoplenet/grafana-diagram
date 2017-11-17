@@ -347,7 +347,7 @@ System.register(['./libs/mermaid/dist/mermaidAPI', 'app/core/time_series2', 'app
 										bindFunctions(diagramContainer[0]);
 
 										document.querySelectorAll('svg').forEach(function (graphSvg) {
-											graphSvg.querySelectorAll('"g .node[title]"').forEach(function (nodeWithTitle) {
+											graphSvg.querySelectorAll('g .node[title]').forEach(function (nodeWithTitle) {
 												var url = nodeWithTitle.getAttribute('title');
 												nodeWithTitle.onclick = function () {
 													return window.location = url;
