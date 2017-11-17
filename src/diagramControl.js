@@ -239,13 +239,20 @@ class DiagramCtrl extends MetricsPanelCtrl {
         graphDefinition = this.templateSrv.replaceWithText(graphDefinition);
         this.diagramType = mermaidAPI.detectType(graphDefinition);
         var diagramContainer = $(document.getElementById(this.containerDivId));
-  
+
         var renderCallback = function (svgCode, bindFunctions){
           if(svgCode === '') {
             diagramContainer.html('There was a problem rendering the graph');
           } else {
-                diagramContainer.html(svgCode);
+            diagramContainer.html(svgCode);
             bindFunctions(diagramContainer[0]);
+
+            document.querySelectorAll('svg').forEach(graphSvg => {
+              graphSvg.querySelectorAll('"g .node[title]"').forEach(nodeWithTitle => {
+                var url = nodeWithTitle.getAttribute('title');
+                nodeWithTitle.onclick = () => window.location = url;
+              });
+            });
           }
         };
         // if parsing the graph definition fails, the error handler will be called but the renderCallback() may also still be called.
@@ -349,14 +356,14 @@ class DiagramCtrl extends MetricsPanelCtrl {
     }
     return graphDefinition;
   }
-	
+
 	renderDiagram(data, graphDefinition) {
 		console.info(graphDefinition);
 		graphDefinition = this.templateSrv.replace(graphDefinition);
 		console.info(graphDefinition);
 		this.diagramType = mermaidAPI.detectType(graphDefinition);
 		var diagramContainer = $(document.getElementById(this.containerDivId));
-		
+
 		var renderCallback = function (svgCode, bindFunctions){
 			if(svgCode == '') {
 				diagramContainer.html('There was a problem rendering the graph');
@@ -370,7 +377,7 @@ class DiagramCtrl extends MetricsPanelCtrl {
 		this.svgData = data;
 		this.render();
 	}
-	
+
 
 	setValues(data) {
 	    if (this.series && this.series.length > 0) {
