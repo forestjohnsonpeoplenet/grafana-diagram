@@ -249,8 +249,8 @@ class DiagramCtrl extends MetricsPanelCtrl {
 
             document.querySelectorAll('svg').forEach(graphSvg => {
               graphSvg.querySelectorAll('g .node[title]').forEach(nodeWithTitle => {
-                var url = nodeWithTitle.getAttribute('title');
-                nodeWithTitle.onclick = () => window.location = url;
+                //var url = nodeWithTitle.getAttribute('title');
+                //nodeWithTitle.onclick = () => window.location = url;
               });
             });
           }

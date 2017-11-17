@@ -348,10 +348,8 @@ System.register(['./libs/mermaid/dist/mermaidAPI', 'app/core/time_series2', 'app
 
 										document.querySelectorAll('svg').forEach(function (graphSvg) {
 											graphSvg.querySelectorAll('g .node[title]').forEach(function (nodeWithTitle) {
-												var url = nodeWithTitle.getAttribute('title');
-												nodeWithTitle.onclick = function () {
-													return window.location = url;
-												};
+												//var url = nodeWithTitle.getAttribute('title');
+												//nodeWithTitle.onclick = () => window.location = url;
 											});
 										});
 									}
